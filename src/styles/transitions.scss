@@ -1,0 +1,3 @@
+@function transitionOne($target) {
+  @return $target 0.15s cubic-bezier(0.68, -0.04, 0.26, 0.87);
+}

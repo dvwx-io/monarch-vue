@@ -1,11 +1,11 @@
 {
   "name": "@dvwx/monarch-vue",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist"
   ],
+  "license": "MIT",
   "main": "./dist/monarch.umd.cjs",
   "module": "./dist/monarch.js",
   "exports": {
