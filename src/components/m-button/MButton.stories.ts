@@ -4,11 +4,23 @@ import MButton from './MButton.vue'
 
 const meta = {
   title: 'Base/MButton',
+  parameters: {
+    slots: {
+      default: {
+        description: 'Content',
+        template: `{{ args.default }}`,
+      },
+    },
+  },
   component: MButton,
   tags: ['autodocs'],
   argTypes: {
     disabled: { control: 'boolean' },
-    variant: { control: 'select', options: ['primary', 'secondary'] },
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary'],
+      defaultValue: 'secondary',
+    },
   },
 } satisfies Meta<typeof MButton>
 
@@ -16,11 +28,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Secondary: Story = {
-  render: (_args, { argTypes }) => ({
-    components: { MButton },
-    props: Object.keys(argTypes),
-    template: '<MButton v-bind="$props" v-on="$props">Testing</MButton>',
-  }),
   args: {},
 }
 
