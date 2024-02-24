@@ -1,3 +1,13 @@
+<template>
+  <button
+    :class="['m-button', `m-button--${variant}`]"
+    :disabled="disabled"
+    @click="emit('click')"
+  >
+    <slot />
+  </button>
+</template>
+
 <script setup lang="ts">
 withDefaults(
   defineProps<{
@@ -12,16 +22,6 @@ withDefaults(
 
 const emit = defineEmits(['click'])
 </script>
-
-<template>
-  <button
-    :class="['m-button', `m-button--${variant}`]"
-    :disabled="disabled"
-    @click="emit('click')"
-  >
-    <slot />
-  </button>
-</template>
 
 <style lang="scss" scoped>
 @import '../../styles/colors';
