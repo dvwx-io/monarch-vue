@@ -1,7 +1,7 @@
 <template>
   <Story group="base" title="MType" :layout="{ type: 'grid', width: 500 }">
     <Variant title="Default">
-      <MType>Testing</MType>
+      <MType>Default</MType>
     </Variant>
 
     <Variant title="Title">
@@ -10,6 +10,14 @@
 
     <Variant title="Subtitle">
       <MType variant="subtitle">Subtitle</MType>
+    </Variant>
+
+    <Variant title="Paragraph">
+      <MType variant="paragraph">Paragraph</MType>
+    </Variant>
+
+    <Variant title="Button">
+      <MType variant="button">Button</MType>
     </Variant>
 
     <Variant title="Nest anchor in paragraph">
