@@ -1,5 +1,5 @@
 <template>
-  <Story title="Base/MButton">
+  <Story group="base" title="MButton" :layout="{ type: 'grid', width: 500 }">
     <template #controls>
       <HstCheckbox v-model="state.disabled" title="Disabled" />
       <HstSelect
@@ -10,7 +10,7 @@
     </template>
 
     <Variant title="Default">
-      <MButton v-bind="state" @click="logEvent('Button Click', $event)">
+      <MButton v-bind="state" @click="logEvent('Click', $event)">
         Button
       </MButton>
     </Variant>
@@ -19,7 +19,7 @@
       <MButton
         v-bind="state"
         variant="primary"
-        @click="logEvent('Button Click', $event)"
+        @click="logEvent('Click', $event)"
       >
         Button
       </MButton>
@@ -28,10 +28,12 @@
 </template>
 
 <script setup lang="ts">
-import MButton from './MButton.vue'
-import { type MButtonProps, type MButtonVariant } from './MButton.types.ts'
-import { logEvent } from 'histoire/client'
 import { reactive } from 'vue'
+import { logEvent } from 'histoire/client'
+
+import type { MButtonProps, MButtonVariant } from './MButton.types.ts'
+
+import MButton from './MButton.vue'
 
 const state = reactive<MButtonProps>({
   disabled: false,

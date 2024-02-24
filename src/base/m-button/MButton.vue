@@ -1,11 +1,12 @@
 <template>
-  <button
+  <Component
+    :is="as"
     :class="['m-button', `m-button--${variant}`]"
     :disabled="disabled"
     v-bind="$attrs"
   >
     <slot />
-  </button>
+  </Component>
 </template>
 
 <script setup lang="ts">
@@ -22,6 +23,7 @@ withDefaults(defineProps<MButtonProps>(), {
 @import '../../styles/colors';
 @import '../../styles/shadow';
 @import '../../styles/spacing';
+@import '../../styles/transitions';
 
 .m-button {
   border: 1px solid transparent;
@@ -34,22 +36,22 @@ withDefaults(defineProps<MButtonProps>(), {
   @include shadow-interactive();
 
   &--secondary {
-    border-color: $border-primary;
-    background-color: $background-secondary;
-    color: $text-color-secondary;
+    border-color: $border;
+    background-color: $secondary;
+    color: $secondary-foreground;
 
     &:hover {
-      border-color: darken($border-primary, 25%);
+      border-color: m_darken($border, 40%);
     }
   }
 
   &--primary {
-    border-color: darken($brand, 20%);
-    background-color: $brand;
-    color: $text-color-secondary;
+    border-color: m_darken($primary, 20%);
+    background-color: $primary;
+    color: $primary-foreground;
 
     &:hover {
-      border-color: darken($brand, 40%);
+      border-color: m_darken($primary, 40%);
     }
   }
 }
