@@ -1,1 +1,9 @@
+@use "sass:map";
+
 $space-base: 4px;
+
+$spacing: ();
+
+@for $i from 1 through 20 {
+  $spacing: map.set($spacing, $i, $i * $space-base);
+}

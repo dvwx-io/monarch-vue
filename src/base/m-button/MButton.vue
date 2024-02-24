@@ -2,28 +2,23 @@
   <button
     :class="['m-button', `m-button--${variant}`]"
     :disabled="disabled"
-    @click="emit('click')"
+    v-bind="$attrs"
   >
     <slot />
   </button>
 </template>
 
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    disabled?: boolean
-    variant?: 'primary' | 'secondary'
-  }>(),
-  {
-    disabled: false,
-    variant: 'secondary',
-  },
-)
+import { MButtonProps } from './MButton.types.ts'
 
-const emit = defineEmits(['click'])
+withDefaults(defineProps<MButtonProps>(), {
+  disabled: false,
+  variant: 'secondary',
+  as: 'button',
+})
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../styles/colors';
 @import '../../styles/shadow';
 @import '../../styles/spacing';
@@ -32,7 +27,7 @@ const emit = defineEmits(['click'])
   border: 1px solid transparent;
   border-radius: 8px;
   cursor: pointer;
-  padding: $space-base * 2 $space-base * 3;
+  padding: map-get($spacing, 2) map-get($spacing, 3);
 
   transition: transitionOne(border-color);
 

@@ -17,16 +17,20 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
+    "dev": "histoire dev",
     "build": "vite build && vue-tsc --emitDeclarationOnly",
-    "types": "vue-tsc"
+    "types": "vue-tsc",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview"
   },
   "peerDependencies": {
     "vue": "3.x"
   },
   "devDependencies": {
+    "@histoire/plugin-vue": "^0.17.12",
     "@types/node": "^20.11.17",
     "@vitejs/plugin-vue": "^5.0.3",
+    "histoire": "^0.17.9",
     "prettier": "^3.2.5",
     "sass": "^1.70.0",
     "typescript": "^5.2.2",
