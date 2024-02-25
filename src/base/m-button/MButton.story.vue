@@ -1,7 +1,6 @@
 <template>
   <Story group="base" title="MButton" :layout="{ type: 'grid', width: 500 }">
     <template #controls>
-      <HstCheckbox v-model="state.disabled" title="Disabled" />
       <HstSelect
         v-model="state.variant"
         title="Variant"
@@ -36,7 +35,6 @@ import type { MButtonProps, MButtonVariant } from './MButton.types.ts'
 import MButton from './MButton.vue'
 
 const state = reactive<MButtonProps>({
-  disabled: false,
   variant: 'secondary',
   as: 'button',
 })

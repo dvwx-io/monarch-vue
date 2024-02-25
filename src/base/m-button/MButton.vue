@@ -2,7 +2,6 @@
   <Component
     :is="as"
     :class="['m-button', `m-button--${variant}`]"
-    :disabled="disabled"
     v-bind="$attrs"
   >
     <slot />
@@ -13,7 +12,6 @@
 import { MButtonProps } from './MButton.types.ts'
 
 withDefaults(defineProps<MButtonProps>(), {
-  disabled: false,
   variant: 'secondary',
   as: 'button',
 })

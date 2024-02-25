@@ -1,5 +1,12 @@
 <template>
-  <Component :is="domEl" :class="['m-type', `m-type--${variant}`]">
+  <Component
+    :is="domEl"
+    :class="[
+      'm-type',
+      `m-type--variant-${variant}`,
+      `m-type--color-${typeColor}`,
+    ]"
+  >
     <slot />
   </Component>
 </template>
@@ -9,11 +16,12 @@ import { computed } from 'vue'
 
 import { DomTextSelector } from '../../types/domElements.ts'
 
-import { MTypeProps } from './MType.types.ts'
+import { MTypeProps, TypeColor } from './MType.types.ts'
 
 const props = withDefaults(defineProps<MTypeProps>(), {
   variant: 'paragraph',
   as: undefined,
+  color: undefined,
 })
 
 const domEl = computed<DomTextSelector>(() => {
@@ -30,26 +38,61 @@ const domEl = computed<DomTextSelector>(() => {
       return 'p'
   }
 })
+
+const typeColor = computed<TypeColor>(() => {
+  if (props.color) return props.color
+
+  return 'primary'
+})
 </script>
 
 <style lang="scss">
+@import '../../styles/colors';
 @import '../../styles/typography';
 
 .m-type {
-  &__title {
-    @include assign-font('title');
+  &--variant {
+    &-title {
+      @include assign-font('title');
+    }
+
+    &-subtitle {
+      @include assign-font('subtitle');
+    }
+
+    &-paragraph {
+      @include assign-font('paragraph');
+    }
+
+    &-button {
+      @include assign-font('button');
+    }
   }
 
-  &__subtitle {
-    @include assign-font('subtitle');
-  }
+  &--color {
+    &-primary {
+      color: $primary-foreground;
+    }
 
-  &__paragraph {
-    @include assign-font('paragraph');
-  }
+    &-secondary {
+      color: $secondary-foreground;
+    }
 
-  &__button {
-    @include assign-font('button');
+    &-info {
+      color: $info-foreground;
+    }
+
+    &-success {
+      color: $success-foreground;
+    }
+
+    &-warning {
+      color: $warning-foreground;
+    }
+
+    &-danger {
+      color: $danger-foreground;
+    }
   }
 }
 </style>
