@@ -24,7 +24,8 @@
     "story:preview": "histoire preview"
   },
   "peerDependencies": {
-    "vue": "3.x"
+    "vue": "3.x",
+    "@vueuse/core": "10.x"
   },
   "devDependencies": {
     "@histoire/plugin-vue": "^0.17.12",

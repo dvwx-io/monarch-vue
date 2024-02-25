@@ -25,7 +25,7 @@ withDefaults(defineProps<MButtonProps>(), {
 
 .m-button {
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: $radius;
   cursor: pointer;
   padding: map-get($spacing, 2) map-get($spacing, 3);
 

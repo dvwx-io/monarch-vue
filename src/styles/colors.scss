@@ -62,16 +62,16 @@ $ring: hsl(221.2 83.2% 53.3%);
 
 // UTILITY
 $success: #2f612b;
-$success-foreground: hsl(210 40% 98%);
+$success-foreground: hsl(105, 40%, 98%);
 
 $warning: #c0b347;
-$warning-foreground: hsl(210 40% 98%);
+$warning-foreground: hsl(105, 40%, 98%);
 
 $info: hsl(221.2 83.2% 53.3%);
-$info-foreground: hsl(210 40% 98%);
+$info-foreground: hsl(225, 40%, 98%);
 
 // RADIUS
-$radius: 0.5rem;
+$radius: 8px;
 
 @function m_darken($color, $percent) {
   @return color.scale($color, $lightness: -$percent);
